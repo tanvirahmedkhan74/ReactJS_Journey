@@ -6,7 +6,7 @@ function App() {
   return (
     <>   {/** JSX Fragment */}
       <Navbar title ="TextUtilis" aboutText="About<>"/>
-      <TextForm title ="Enter Some Text"/>
+      <TextForm title ="Text Analyzer"/>
     </>
   );
 }

@@ -27,17 +27,28 @@ export default function TextForm(props) {
 
   const handleClearClick = () => {
     setText("");
-  }
+  };
 
-  const [text, setText] = useState("Enter some text here"); // useState is a hook which returns an array of two elements - the first element is the state variable and the second element is the function to update the state variable
+  const wordCount = () => {
+    let count = 0;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === " ") count++;
+    }
+    return count;
+  };
+
+  const [text, setText] = useState("Enter some text here"); // useState is a hook which returns an array of two elements -
+  // the first element is the state variable and the second element is the function to update the state variable
+
+  let count = wordCount();
 
   return (
     <>
+      <div className="container my-3 --bs-info-bg-subtle">
+        <h2>{props.title}</h2>
+      </div>
       <div className="container my-3">
         <div className="mb-3">
-          <label htmlFor="myBox" className="form-label">
-            <h5>{props.title}</h5>
-          </label>
           <textarea
             className="form-control"
             value={text}
@@ -46,18 +57,30 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button className="btn btn-outline-primary" onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLowClick}>
+        <button className="btn btn-outline-primary mx-2" onClick={handleLowClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleAsciClick}>
+        <button className="btn btn-outline-primary mx-2" onClick={handleAsciClick}>
           ASCI Code Convert
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleClearClick}>
+        <button className="btn btn-outline-primary mx-2" onClick={handleClearClick}>
           Clear
         </button>
+      </div>
+      <div className="container my-3">
+        <h4>Your Text Summary</h4>
+        <p className="lead">
+          Word Count: {count};
+          <br />
+          Character Count: {text.length}
+          <br />
+          Time to Read: {count / 200} minutes
+        </p>
+        <h3>Preview Your Text</h3>
+        <p className="lead">{text}</p>
       </div>
     </>
   );

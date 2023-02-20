@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
         </a>
-        <button
+        {/* <button
           className="navbarS-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -18,7 +18,7 @@ export default function Navbar(props) {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button> */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
@@ -39,8 +39,8 @@ export default function Navbar(props) {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
-              Search
+            <button className="btn btn-outline-primary" type="submit">
+              Search!
             </button>
           </form>
         </div>
@@ -56,5 +56,4 @@ Navbar.propTypes = {
 };
 
 /** Default props are used when no props are passed to the component */
-Navbar.defaultProps = {title: 'Set title here',
-aboutText: 'Def About'}
+Navbar.defaultProps = { title: "Set title here", aboutText: "Def About" };
